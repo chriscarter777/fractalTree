@@ -42,8 +42,8 @@ namespace FractalTrees
             //starting parameters
             double segLength = 50;
             double ang0 = 0;
-            int x0 = 250;
-            int y0 = 260;
+            int x0 = 400;
+            int y0 = 400;
             int wt0 = generations;
 
             //calculate tree dimensions and instantiate the array of line segments
@@ -71,22 +71,24 @@ namespace FractalTrees
                     Segment thisSegment = segments[generation, i];
                     //...draw it 
                     Console.WriteLine("DRAWING--Generation: " + generation + "/ Segment: " + i);
-                    //Console.WriteLine(thisSegment.ToString);
+                    Console.WriteLine(thisSegment.ToString());
                     DrawSegment(thisSegment);
                     //...and initialize its two child segments
                     if (generation < generations)
                     {
-                        Console.WriteLine("Okay to creat a child generation");
-                        Segment leftSegment = new Segment(segLength, thisSegment.ExitAngleLeft, relativeAngle, thisSegment.X2, thisSegment.Y2, segWeight);
-                        segments[generation + 1, childGenerationcounter] = leftSegment;
-                        Segment rightSegment = new Segment(segLength, thisSegment.ExitAngleRight, relativeAngle, thisSegment.X2, thisSegment.Y2, segWeight);
-                        segments[generation + 1, childGenerationcounter + 1] = leftSegment;
-                        Console.WriteLine("Created " + (generation + 1) + " / " + childGenerationcounter + " and " + (childGenerationcounter + 1));
-                        childGenerationcounter += 2;
+                        segments[generation + 1, childGenerationcounter] = new Segment(segLength, thisSegment.ExitAngleLeft, relativeAngle, thisSegment.X2, thisSegment.Y2, segWeight);
+                        Console.WriteLine("Created " + "[" + (generation + 1) + "] [" + childGenerationcounter + "]");
+                        childGenerationcounter ++;
+                        segments[generation + 1, childGenerationcounter] = new Segment(segLength, thisSegment.ExitAngleRight, relativeAngle, thisSegment.X2, thisSegment.Y2, segWeight);
+                        Console.WriteLine("Created " + "[" + (generation + 1) + "] [" + childGenerationcounter + "]");
+                        childGenerationcounter++;
                     }
                     i ++;
                 }
+                Console.WriteLine("Finished processing for generation " + generation);
+                Console.WriteLine("-----------------------------------------");
             }
+            Console.WriteLine("Finished processing");
         }
 
         public void DrawSegment(Segment segment)
@@ -128,8 +130,28 @@ namespace FractalTrees
             weight = wt;
         }
 
-        public double Length { get; set; }
-        public double Angle { get; set; }
+        public double Length
+        {
+            get
+            {
+                return length;
+            }
+            set
+            {
+                length = value;
+            }
+        }
+        public double Angle
+        {
+            get
+            {
+                return angle;
+            }
+            set
+            {
+                angle = value;
+            }
+        }
         public double ExitAngleLeft
         {
             get
@@ -146,8 +168,30 @@ namespace FractalTrees
             }
         }
 
-        public int X1 { get; set; }
-        public int Y1 { get; set; }
+        public int X1
+        {
+            get
+            {
+                return x1;
+            }
+            set
+            {
+                x1 = value;
+            }
+        }
+
+        public int Y1
+        {
+            get
+            {
+                return y1;
+            }
+            set
+            {
+                y1 = value;
+            }
+        }
+
         public int X2
         {
             get
@@ -160,26 +204,33 @@ namespace FractalTrees
         {
             get
             {
-                return y1 + GetDeltaY(length, angle);
+                return y1 - GetDeltaY(length, angle);
             }
         }
 
-        public int Weight { get; set; }
+        public int Weight
+        {
+            get
+            {
+                return weight;
+            }
+        }
+
 
 
         private int GetDeltaX (double length, double angle)
         {
-            return (int)Math.Round((length * Math.Cos(angle)));
+            return (int)Math.Round((length * Math.Sin(angle)));
         }
 
         private int GetDeltaY(double length, double angle)
         {
-            return (int)Math.Round((length * Math.Sin(angle)));
+            return (int)Math.Round((length * Math.Cos(angle)));
         }
 
         public override string ToString()
         {
-            string descr = "Segment length " + Length + " Angle " + Angle + " ExitAngleLeft " + ExitAngleLeft + " ExitAngleRight " + ExitAngleRight + " Weight " + Weight + " at " + X1 + " , " + Y1;
+            string descr = "Segment length " + Length + " Angle " + Angle + " ExitAngleLeft " + ExitAngleLeft + " ExitAngleRight " + ExitAngleRight + " Weight " + Weight + " from " + X1 + " , " + Y1 + " to " + X2 + " , " + Y2;
             return descr;
         }
     }
