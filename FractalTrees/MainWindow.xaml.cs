@@ -72,7 +72,16 @@ namespace FractalTrees
                     //...draw it 
                     Console.WriteLine("DRAWING--Generation:" + generation + "/ Segment:" + i);
                     Console.WriteLine(thisSegment.ToString());
-                    DrawSegment(thisSegment);
+                    Color lineColor = new Color();
+                        if (generation == generations)
+                    {
+                        lineColor = Colors.Green;
+                    }
+                    else
+                    {
+                        lineColor = Colors.SaddleBrown;
+                    }
+                    DrawSegment(thisSegment, lineColor);
                     //...and initialize its two child segments
                     if (generation < generations)
                     {
@@ -91,7 +100,7 @@ namespace FractalTrees
             Console.WriteLine("Finished processing");
         }
 
-        public void DrawSegment(Segment segment)
+        public void DrawSegment(Segment segment, Color lineColor)
         {
             Line line = new Line();
             line.X1 = segment.X1;
@@ -100,9 +109,8 @@ namespace FractalTrees
             line.Y2 = segment.Y2;
 
             SolidColorBrush brush = new SolidColorBrush();
-            brush.Color = Colors.Black;
+            brush.Color = lineColor;
 
-            // Set Line's width and color
             line.StrokeThickness = segment.Weight;
             line.Stroke = brush;
 
