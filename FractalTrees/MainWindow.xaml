@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FractalTrees"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="840">
+        Title="Fractal Tree in C#" Height="900" Width="1040">
     <Grid>
-        <TextBox x:Name="txtNumGenerations" HorizontalAlignment="Left" Height="23" Margin="5,5,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtAngle" HorizontalAlignment="Left" Height="23" Margin="130,5,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtProportionateLength" HorizontalAlignment="Left" Height="23" Margin="254,5,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label" Content="# of generations" HorizontalAlignment="Left" Margin="5,29,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label1" Content="Half-angle (rad)" HorizontalAlignment="Left" Margin="130,29,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label2" Content="Proportionate length" HorizontalAlignment="Left" Margin="254,29,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnDraw" Content="CreateFractalTree" HorizontalAlignment="Left" Margin="690,5,0,0" VerticalAlignment="Top" Width="75" Click="btnDraw_Click"/>
-        <Grid Name="DrawSpace" HorizontalAlignment="Left" Height="400" Margin="16,57,0,0" VerticalAlignment="Top" Width="800"/>
+        <TextBox x:Name="txtNumGenerations" HorizontalAlignment="Left" Height="23" Margin="5,5,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="#FFF2E6"/>
+        <TextBox x:Name="txtAngle" HorizontalAlignment="Left" Height="23" Margin="130,5,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="#FFF2E6"/>
+        <TextBox x:Name="txtProportionateLength" HorizontalAlignment="Left" Height="23" Margin="254,5,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="#FFF2E6"/>
+        <Label x:Name="label" Content="Num of generations" HorizontalAlignment="Left" Margin="5,22,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1" Content="Half-angle (radians)" HorizontalAlignment="Left" Margin="130,22,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label2" Content="Proportionate length" HorizontalAlignment="Left" Margin="254,22,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnDraw" Content="Create Fractal Tree" HorizontalAlignment="Left" Margin="494,12,0,0" VerticalAlignment="Top" Width="120" Click="btnDraw_Click" Background="#FFF2E6"/>
+        <Grid Name="DrawSpace" HorizontalAlignment="Left" Height="800" Margin="15,54,0,0" VerticalAlignment="Top" Width="1000" Background="#E6FFFF"/>
     </Grid>
 </Window>

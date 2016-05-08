@@ -40,10 +40,10 @@ namespace FractalTrees
             double relativeLength = len;
 
             //starting parameters
-            double segLength = 50;
+            double segLength = 120;
             double ang0 = 0;
-            int x0 = 400;
-            int y0 = 400;
+            int x0 = 500;
+            int y0 = 800;
             int wt0 = generations;
 
             //calculate tree dimensions and instantiate the array of line segments
@@ -70,7 +70,7 @@ namespace FractalTrees
                 {
                     Segment thisSegment = segments[generation, i];
                     //...draw it 
-                    Console.WriteLine("DRAWING--Generation: " + generation + "/ Segment: " + i);
+                    Console.WriteLine("DRAWING--Generation:" + generation + "/ Segment:" + i);
                     Console.WriteLine(thisSegment.ToString());
                     DrawSegment(thisSegment);
                     //...and initialize its two child segments
