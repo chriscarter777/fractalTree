@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace FractalTrees
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -33,6 +30,13 @@ namespace FractalTrees
             CreateFractalTree(gen, ang, len);
         }
 
+        private void btnReset_Click(object sender, RoutedEventArgs e)
+        {
+            txtNumGenerations.Text = "";
+            txtAngle.Text = "";
+            txtProportionateLength.Text = "";
+            drawSpace.Children.Clear();
+        }
         private void CreateFractalTree(int gen, double ang, double len)
         {
             int generations = gen;
@@ -43,7 +47,7 @@ namespace FractalTrees
             double segLength = 120;
             double ang0 = 0;
             int x0 = 500;
-            int y0 = 800;
+            int y0 = 700;
             int wt0 = generations;
 
             //calculate tree dimensions and instantiate the array of line segments
@@ -115,7 +119,7 @@ namespace FractalTrees
             line.Stroke = brush;
 
             // Add line to the Grid.
-            DrawSpace.Children.Add(line);
+            drawSpace.Children.Add(line);
         }
     }
 

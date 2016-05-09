@@ -13,7 +13,8 @@
         <Label x:Name="label" Content="Num of generations" HorizontalAlignment="Left" Margin="5,22,0,0" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label1" Content="Half-angle (radians)" HorizontalAlignment="Left" Margin="130,22,0,0" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label2" Content="Proportionate length" HorizontalAlignment="Left" Margin="254,22,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnDraw" Content="Create Fractal Tree" HorizontalAlignment="Left" Margin="494,12,0,0" VerticalAlignment="Top" Width="120" Click="btnDraw_Click" Background="#FFF2E6"/>
-        <Grid Name="DrawSpace" HorizontalAlignment="Left" Height="800" Margin="15,54,0,0" VerticalAlignment="Top" Width="1000" Background="#E6FFFF"/>
+        <Button x:Name="btnDraw" Content="Create Fractal Tree" HorizontalAlignment="Left" Margin="459,12,0,0" VerticalAlignment="Top" Width="120" Click="btnDraw_Click" Background="#FFF2E6"/>
+        <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Left" Margin="661,12,0,0" VerticalAlignment="Top" Width="120" Background="#FFF2E6" Click="btnReset_Click"/>
+        <Grid Name="drawSpace" HorizontalAlignment="Left" Height="800" Margin="15,54,0,0" VerticalAlignment="Top" Width="1000" Background="#E6FFFF"/>
     </Grid>
 </Window>
